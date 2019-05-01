@@ -46,7 +46,7 @@ $(document).ready(function(){
                     required: "vamos lá, você tem um número, não tem?",
                     minlength: "seu numero deve ter no minimo 4 caracteres"
                 },
-                email: {
+                email: { 
                     required: "sem email, sem mensagem"
                 },
                 message: {
