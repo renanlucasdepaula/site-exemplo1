@@ -53,7 +53,7 @@ $(document).ready(function(){
                     required: "hum...então, você precisa escrever algo na mensagem.",
                     minlength: "isso é tudo? sério? escreva mais algumas palavras" 
                 }
-            },
+            }, 
             submitHandler: function(form) {
                 $(form).ajaxSubmit({
                     type:"POST",
