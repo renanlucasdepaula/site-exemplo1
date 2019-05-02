@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -27,6 +27,10 @@
 
         <link href="css/style.css" rel="stylesheet">
         <link href="css/responsive.css" rel="stylesheet">
+        <link rel='stylesheet' type='text/css' href='./mapsdk/map.css'/>
+        <link rel="stylesheet" href="./mapsdk/mapbox-gl-js/mapbox-gl.css">
+        <script src='./mapsdk/tomtom.min.js'></script>
+        <script src='./mapsdk/mapbox-gl-js/mapbox-gl.js'></script>
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -78,15 +82,28 @@
         <!--================Contact Us Area =================-->
         <section class="contact_us_area">
             <div class="container">
-                <div id="mapBox" class="mapBox row m0"
-                    data-lat="-23.1175492"
-                    data-lon="-46.5567066"
-                    data-zoom="14"
-                    data-marker="img/map-marker.png"
-                    data-info="Sua Auto Escola"
-                    data-mlat="23.1175492"
-                    data-mlon="-46.5567066">
-                </div>
+                <div id='map' class='use-all-space' style="border: 1px solid black;
+                height: 100vh;
+                width: 100%;"></div>
+                <script>
+                // Define your product name and version
+                tomtom.setProductInfo('autoescola', '1.0');
+                var markerOptions = {
+                    icon: tomtom.L.icon({
+                        iconUrl: 'img/location-pin.png',
+                        iconSize: [30, 34],
+                        iconAnchor: [15, 34]
+                    })
+                };
+            
+                var map = tomtom.map('map', {
+                    key: 'Fy8fGRWNviahmUVHck1QfhWKmCtvItTu',
+                    source: 'vector',
+                    basePath: './mapsdk'
+                });
+                tomtom.L.marker([-23.1175492,-46.5567066], markerOptions).addTo(map);
+                map.setView([-23.1175492,-46.5567066], 4);
+                </script>
                 <div class="contact_details_inner">
                     <div class="row">
                         <div class="col-lg-6">
@@ -156,16 +173,16 @@
             <div class="footer_widgets_area">
                 <div class="container">
                     <div class="f_widgets_inner row">
-                        <div class="col-lg-3 col-md-6">
+                        <div class="col-lg-6 col-md-6">
                             <aside class="f_widget subscribe_widget">
                                 <div class="f_w_title">
-                                    <h3>Our Newsletter</h3>
+                                    <h3>Receba Novidades</h3>
                                 </div>
-                                <p>Subscribe to our mailing list to get the updates to your email inbox.</p>
+                                <p>Insira seu e-mail abaixo para receber novidades e promoções.</p>
                                 <div class="input-group">
                                     <input type="email" class="form-control" placeholder="E-mail" aria-label="E-mail">
                                     <span class="input-group-btn">
-                                        <button class="btn btn-secondary submit_btn" type="button">Subscribe</button>
+                                        <button class="btn btn-secondary submit_btn" type="button">Inscreva-se</button>
                                     </span>
                                 </div>
                                 <ul>
@@ -177,7 +194,7 @@
                                 </ul>
                             </aside>
                         </div>
-                        <div class="col-lg-3 col-md-6">
+                        <div class="col-lg-6 col-md-6">
                             <aside class="f_widget contact_widget">
                                 <div class="f_w_title">
                                     <h3>Entre em contato</h3>
@@ -193,7 +210,7 @@
                     </div>
                 </div>
             </div>
-            <div class="copy_right_area">
+            <div class="copy_right_area d-none">
                 <div class="container">
                     <div class="float-md-left">
                         <h5>Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a></h5>
@@ -286,5 +303,6 @@
         <script src="js/contact.js"></script>
 
         <script src="js/theme.js"></script>
+        
     </body>
 </html>
