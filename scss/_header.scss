@@ -39,7 +39,7 @@
                 }
                 &:last-child{
                     margin-right: 0px;
-                }
+                }  
                 &:hover, &.active{
                     a{
                         color: $baseColor;
@@ -108,6 +108,12 @@
                     margin-right: 0px;
                 }
             }
+        }
+        .navbar-brand{ 
+            width: 20%;
+            img{
+                max-width: 100%; 
+            } 
         }
     }
     &.navbar_fixed{
